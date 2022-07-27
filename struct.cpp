@@ -15,6 +15,16 @@ struct Personagem {
 
 };
 
+int monstro(int atq, int play){
+     play -= atq;
+    std::cout << "O mostro te atacou, voce sofreu dano de: " << atq << "\n\n"; 
+    std::cout << "sua vida: " << play << "\n\n"; 
+    if(play <= 0){
+        std::cout << "Voce morreu! \n\n";
+    }
+    return play;
+}
+
 
 int main (){
     Personagem player1;
@@ -40,7 +50,8 @@ int main (){
     std::cout << "skills do jogador: "  << player1.skills[i] << "\n\n";
    
     }
-
+   player1.vida =  monstro(100, player1.vida);
+    std:: cout << "vida atual: " <<  player1.vida;
 
     return 0;
 }
