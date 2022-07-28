@@ -12,7 +12,7 @@ struct Personagem {
     int defesa;
     int mana;
     bool Persovivo;
-    std::string skills[2];
+    std::string skills[3]{"firebolt", "Nemesis", "IceBolt"};
 
     bool monstro(int atq=0){
         vida -= atq;
@@ -45,8 +45,15 @@ struct Personagem {
         std::cout << "Ataque: " << ataque << "\n";
         std::cout << "Defesa: " << defesa << "\n";
         std::cout << "Mana: " << mana << "\n";
+        std::cout << "Skills: ";
+        for(int i = 0; i < 3; i++){
+        std::cout << skills[i] << " ";
+        
+      
+    
+        }
         if(!Persovivo == 0){
-        std::cout << "Status de vida: Vivo";
+        std::cout << "\nStatus de vida: Vivo";
         }else{
         std::cout << "Status de vida: Morto";
 
