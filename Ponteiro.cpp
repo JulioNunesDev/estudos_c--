@@ -2,15 +2,14 @@
 
 
 int main () {
-    int num = 0;
-    int *pn;
+    int *p;
+    int numeros[10];
+    p=numeros;
 
-    pn = &num;
-
-
-    std::cout << pn << "\n";
-    std::cout << &num << "\n";
-    std::cout << num << "\n";
-    std::cout << *pn << "\n";
+    for(int i =0; i < 10; i++){
+       *(p+=1) = i;
+       std::cout << " addres: " << numeros[i] << " Valores: " << p << "\n\n"; 
+    }
+    std::cout << p;
     return 0;
 }
