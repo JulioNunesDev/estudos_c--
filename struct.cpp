@@ -1,8 +1,9 @@
 #include <iostream>
 #include <list>
+#include <vector>
 
 
-
+using namespace std;
 struct Personagem {
     std::string nome;
     int vida;
@@ -10,48 +11,59 @@ struct Personagem {
     int ataque;
     int defesa;
     int mana;
-    bool morto_ou_vivo;
+    bool Persovivo;
     std::string skills[2];
+
+    bool monstro(int atq=0){
+        vida -= atq;
+        std::cout << "O mostro te atacou, voce sofreu dano de: " << atq << "\n\n";
+        std::cout << "sua vida: " << vida << "\n\n"; 
+        
+        if(vida <= 0) {
+        std::cout << "Voce morreu! \n\n";
+         
+        return false;
+        } 
+        return true;
+    }
+
+    void insereDados(std::string stnome,int stvida, int stres, int statq, int stdef, int stmana){
+        nome  = stnome;
+        vida  = stvida;
+        resistencia  = stres;
+        ataque  = statq;
+        defesa  = stdef;
+        mana  = stmana;
+        Persovivo = monstro(10);
+     
+    }
+
+    void printx(){
+        std::cout << "Personagem: " << nome << "\n";
+        std::cout << "Life: " << vida << "\n";
+        std::cout << "Resistencia: " << resistencia << "\n";
+        std::cout << "Ataque: " << ataque << "\n";
+        std::cout << "Defesa: " << defesa << "\n";
+        std::cout << "Mana: " << mana << "\n";
+        if(!Persovivo == 0){
+        std::cout << "Status de vida: Vivo";
+        }else{
+        std::cout << "Status de vida: Morto";
+
+        }
+        
+        
+    }
+
 
 };
 
-int monstro(int atq, int play){
-     play -= atq;
-    std::cout << "O mostro te atacou, voce sofreu dano de: " << atq << "\n\n"; 
-    std::cout << "sua vida: " << play << "\n\n"; 
-    if(play <= 0){
-        std::cout << "Voce morreu! \n\n";
-    }
-    return play;
-}
 
 
 int main (){
     Personagem player1;
-
-    std::cout << "Nome do personagem: ";
-    std::cin >> player1.nome; 
-
-    player1.vida = 100;
-    player1.resistencia = 130;
-    player1.ataque = 80;
-    player1.defesa = 60;
-    player1.mana = 50;
-    player1.morto_ou_vivo = true;
-    player1.skills[0] = "FireBolt";
-    player1.skills[1] = "FrostIce";
-
-    std::cout << "O nome do jogador: " << player1.nome << "\n\n";
-    std::cout << "Life do jogador:   " << player1.vida << "\n\n";
-    std::cout << "Ataque do jogador: " << player1.ataque << "\n\n";
-    std::cout << "Defesa do jogador: " << player1.defesa << "\n\n";
-    std::cout << "Mana do jogador:  "   << player1.mana << "\n\n";
-    for(int i =0; i < 2; i++){
-    std::cout << "skills do jogador: "  << player1.skills[i] << "\n\n";
-   
-    }
-   player1.vida =  monstro(100, player1.vida);
-    std:: cout << "vida atual: " <<  player1.vida;
+    player1.insereDados("Julio Nunes", 100, 75, 120, 130, 60);
+    player1.printx();
 
     return 0;
 }
