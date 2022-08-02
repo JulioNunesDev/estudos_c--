@@ -13,4 +13,12 @@ private:
 
 };
 
+class Moto:public Veiculo{
+
+    public:
+    Moto::Moto(){
+
+    }
+};
+
 #endif
