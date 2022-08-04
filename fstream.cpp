@@ -6,9 +6,9 @@ int main ( )
 {
     fstream arquivo;
     char opc = 's';
-    string nome;
+    string nome, linha;
 
-    arquivo.open("Julio.txt", ios::out);
+    arquivo.open("Julio.txt", ios::out | ios::app);
 
     while (opc == 's' or opc == 'S')
     {
@@ -22,6 +22,19 @@ int main ( )
     }
 
     arquivo.close();
+
+    arquivo.open("Julio.txt", ios::in);
+
+    cout << "Nomes digitados: " << endl;
+
+    if(arquivo.is_open()){
+        while(getline(arquivo, linha)){
+            cout << linha << endl;
+        }
+        arquivo.close();
+    }else{
+        cout << "arquivo nao foi possivel abrir-lo";
+    }
     
 
     return 0;
